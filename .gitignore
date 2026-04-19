@@ -14,3 +14,12 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+Main
+.idea
+godot-cpp
+astrologian/.editorconfig
+astrologian/.gitattributes
+astrologian/.gitignore
+astrologian/default.profraw
+

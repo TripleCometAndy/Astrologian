@@ -1,0 +1,8 @@
+[configuration]
+entry_symbol = "astrologian_init"
+compatibility_minimum = "4.1"
+reloadable = true
+
+[libraries]
+macos.debug = "res://bin/libAstrologian.dylib"
+
