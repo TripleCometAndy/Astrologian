@@ -15,3 +15,5 @@ View *DummyViewFactory::getView(const VIEW_TYPE type, const bool addToSceneTree)
             return new View();
     }
 }
+
+

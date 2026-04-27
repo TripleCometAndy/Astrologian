@@ -97,6 +97,8 @@ add_library(Astrologian SHARED
         src/Artifacts/AquaInsignia/AquaInsigniaViewGodot.cpp
         src/Artifacts/CrimsonBarb/CrimsonBarbView.cpp
         src/Artifacts/CrimsonBarb/CrimsonBarbView.h
+        src/ViewFactory/ViewFactory.h
+        src/ViewFactory/ViewFactory.cpp
 )
 
 
@@ -117,16 +119,8 @@ include(CTest)
 include(Catch)
 catch_discover_tests(all_tests)
 
-# Ensure that building the Astrologian target also builds the test executable
-# and runs the tests after the build. CLion and some CMake workflows build a
-# specific target (e.g. `Astrologian`) rather than the default `all`, so an
-# `add_custom_target(... ALL ...)` won't run when building that specific target.
-add_dependencies(Astrologian all_tests)
-
-# Run tests after Astrologian is built. This is a POST_BUILD custom command so
-# tests execute automatically when you build the `Astrologian` target from the
-# IDE or via `cmake --build <dir> --target Astrologian`.
-add_custom_command(TARGET Astrologian POST_BUILD
+add_custom_target(run_tests ALL
         COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
+        DEPENDS all_tests
 )
 

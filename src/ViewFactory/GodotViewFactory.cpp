@@ -7,7 +7,6 @@
 
 #include "../Artifacts/AquaInsignia/AquaInsigniaViewGodot.h"
 #include "../Artifacts/container/ArtifactContainerViewGodot.h"
-#include "../Artifacts/CrimsonBarb/CrimsonBarb.h"
 #include "../Artifacts/CrimsonBarb/CrimsonBarbViewGodot.h"
 
 GodotViewFactory::GodotViewFactory(godot::Node& parent) : parent(parent) {

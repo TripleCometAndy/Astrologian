@@ -8,7 +8,6 @@
 #include <random>
 
 class RandomNumber {
-private:
     std::mt19937 seed;
 
     static std::mt19937 generateRandomSeed();
@@ -16,9 +15,9 @@ private:
 
 public:
     RandomNumber();
-    RandomNumber(int integerSeed);
+    explicit RandomNumber(int integerSeed);
 
-    int getNumInRange(unsigned long min, unsigned long max);
+    unsigned long getNumInRange(unsigned long min, unsigned long max);
 };
 
 

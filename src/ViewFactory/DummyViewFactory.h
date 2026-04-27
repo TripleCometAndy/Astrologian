@@ -8,7 +8,10 @@
 
 
 class DummyViewFactory : public ViewFactory {
-    View* getView(const VIEW_TYPE type, const bool addToSceneTree) const override;
+public:
+    [[nodiscard]] View* getView(VIEW_TYPE type, bool addToSceneTree) const override;
+
+    ~DummyViewFactory() override = default;
 };
 
 

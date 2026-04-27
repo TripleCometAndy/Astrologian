@@ -10,14 +10,14 @@
 #include "../View/ViewType.h"
 
 class GodotViewFactory : public ViewFactory {
-private:
     godot::Node& parent;
 
 public:
+    explicit GodotViewFactory(godot::Node& parent);
 
-    GodotViewFactory(godot::Node& parent);
+    [[nodiscard]] View* getView(VIEW_TYPE type, bool addToSceneTree) const override;
 
-    View* getView(VIEW_TYPE type, bool addToSceneTree) const override;
+    ~GodotViewFactory() override = default;
 };
 
 

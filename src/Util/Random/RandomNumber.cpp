@@ -14,22 +14,20 @@ RandomNumber::RandomNumber(const int integerSeed) : seed(generateSeed(integerSee
 
 std::mt19937 RandomNumber::generateRandomSeed() {
     std::random_device rd;
-
-    std::mt19937 gen(rd());
+    const std::mt19937 gen(rd());
 
     return gen;
 }
 
-std::mt19937 RandomNumber::generateSeed(const int seed) {
+std::mt19937 RandomNumber::generateSeed(const int integerSeed) {
     std::random_device rd;
-
-    std::mt19937 gen(seed);
+    const std::mt19937 gen(integerSeed);
 
     return gen;
 }
 
-int RandomNumber::getNumInRange(const unsigned long min, const unsigned long max) {
-    std::uniform_int_distribution<> distr(min, max);
+unsigned long RandomNumber::getNumInRange(const unsigned long min, const unsigned long max) {
+    std::uniform_int_distribution<unsigned long> distr(min, max);
 
     return distr(seed);
 }

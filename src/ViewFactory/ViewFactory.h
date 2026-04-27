@@ -4,7 +4,6 @@
 
 #ifndef ASTROLOGIAN_VIEWFACTORY_H
 #define ASTROLOGIAN_VIEWFACTORY_H
-#include <memory>
 
 #include "../View/View.h"
 #include "../View/ViewType.h"
@@ -12,7 +11,10 @@
 
 class ViewFactory {
 public:
-    virtual View* getView(VIEW_TYPE type, bool addToSceneTree) const = 0;
+    //TODO. This could probably return a reference
+    [[nodiscard]] virtual View* getView(VIEW_TYPE type, bool addToSceneTree) const = 0;
+
+    virtual ~ViewFactory() = 0;
 };
 
 
