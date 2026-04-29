@@ -19,10 +19,13 @@
 using namespace godot;
 
 void initialize(ModuleInitializationLevel p_level) {
+    //TODO. Document what this is doing. Why
     if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
         return;
     }
 
+    //TODO. Document what this is doing. Why?
+    //TODO. Atomize?
     ClassDB::register_class<AstrologianGodot>();
     ClassDB::register_class<ArtifactViewGodot>();
     ClassDB::register_class<CrimsonBarbViewGodot>();
@@ -31,11 +34,13 @@ void initialize(ModuleInitializationLevel p_level) {
 }
 
 void uninitialize(ModuleInitializationLevel p_level) {
+    //TODO. What is this doing. Why?
     if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
         return;
     }
 }
 
+//TODO. What is this doing. Why?
 extern "C" {
     GDExtensionBool GDE_EXPORT astrologian_init (
         GDExtensionInterfaceGetProcAddress p_get_proc_address,

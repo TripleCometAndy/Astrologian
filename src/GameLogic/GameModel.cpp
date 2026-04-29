@@ -18,5 +18,6 @@ void GameModel::startGame() {
      */
     std::unique_ptr<Artifact> startingArtifact = artifactPool.getArtifact();
 
+    //TODO. Doc
     inventory.addArtifact(std::move(startingArtifact));
 }

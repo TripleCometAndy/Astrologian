@@ -40,6 +40,4 @@ public:
     [[nodiscard]] virtual const View& getView() const = 0;
 };
 
-
-
 #endif //ASTROLOGIAN_ARTIFACT_H

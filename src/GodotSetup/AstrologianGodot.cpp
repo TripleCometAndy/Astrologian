@@ -22,20 +22,35 @@ void AstrologianGodot::_ready() {
     godotViewFactory = new GodotViewFactory(*this);
     gameModel = new GameModel(*godotViewFactory);
 
-    //Initialize the screen size
-    Vector2i screenSize = DisplayServer::get_singleton()->screen_get_size(DisplayServer::SCREEN_OF_MAIN_WINDOW);
-
+    //TODO. What is this doing. Why
+    //TODO. Does this need to be in initializeScreenSize
+    //TODO. If not, should it be atomized
     if (Engine::get_singleton()->is_editor_hint()) {
         return;
     }
 
+    //TODO. What is this doing. Why
+    initializeScreenSize();
+
+    //TODO. What is this doing. Why?
+    gameModel->startGame();
+}
+
+void AstrologianGodot::initializeScreenSize() {
+    //TODO. What is this doing. Why?
     DisplayServer::get_singleton()->window_set_mode(DisplayServer::WINDOW_MODE_MAXIMIZED);
 
-    get_tree()->get_root()->set_content_scale_size(Vector2(1920, 1080));
-    get_tree()->get_root()->set_content_scale_mode(Window::CONTENT_SCALE_MODE_CANVAS_ITEMS);
-    get_tree()->get_root()->set_content_scale_aspect(Window::CONTENT_SCALE_ASPECT_KEEP);
+    //TODO. Why the root of the tree?
+    Window* root = get_tree()->get_root();
 
-    gameModel->startGame();
+    //TODO. What is this doing. Why?
+    root->set_content_scale_size(Vector2(1920, 1080));
+
+    //TODO. What is this doing. Why?
+    root->set_content_scale_mode(Window::CONTENT_SCALE_MODE_CANVAS_ITEMS);
+
+    //TODO. What is this doing. Why?
+    root->set_content_scale_aspect(Window::CONTENT_SCALE_ASPECT_KEEP);
 }
 
 AstrologianGodot::~AstrologianGodot() {

@@ -9,8 +9,11 @@ Inventory::Inventory(const ViewFactory & viewFactory) : artifactContainer(*dynam
 }
 
 std::vector<const Artifact*> Inventory::getArtifacts() const {
+    //TODO. Document why we are copying.
+    //TODO. Atomize
     std::vector<const Artifact*> copy;
 
+    //TODO. Document why reserve is needed
     copy.reserve(artifacts.size());
     for (const std::unique_ptr<Artifact>& a : artifacts) {
         copy.push_back(a.get());
@@ -20,6 +23,8 @@ std::vector<const Artifact*> Inventory::getArtifacts() const {
 }
 
 void Inventory::addArtifact(std::unique_ptr<Artifact> artifact) {
+    //TODO. Just grab the view first
+
     artifacts.push_back(std::move(artifact));
     artifactContainer.addArtifact(artifacts.back()->getView());
 }
@@ -27,6 +32,7 @@ void Inventory::addArtifact(std::unique_ptr<Artifact> artifact) {
 bool Inventory::contains(const Artifact &artifact) const {
     bool found = false;
 
+    //TODO. Use ranges from C++20
     for (const std::unique_ptr<Artifact>& a : artifacts) {
         if (artifact == *a) {
             found = true;

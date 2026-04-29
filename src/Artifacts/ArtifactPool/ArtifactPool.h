@@ -23,7 +23,11 @@ class ArtifactPool {
         //TODO. Confusing name
         View * v = viewFactory.getView(viewType, false);
 
+        //TODO. Should we nullcheck the pointer
+
         //TODO. Confusing Name
+        //TODO. Document why we need a dynamic_cast here
+        //TODO. Is it necessary to see if the cast succeeded? Is it nullptr?
         const auto v2 = dynamic_cast<ViewT*>(v);
 
         return std::make_unique<ArtifactT>(*v2);
@@ -37,6 +41,9 @@ class ArtifactPool {
             return foo<ArtifactT, ViewT>(type, vf);
         };
     }
+
+    //TODO. Doc
+    std::unique_ptr<Artifact> constructArtifactWithType(VIEW_TYPE type) const;
 
 public:
     //TODO. Doc

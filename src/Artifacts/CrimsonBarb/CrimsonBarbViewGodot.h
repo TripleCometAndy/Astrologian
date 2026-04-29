@@ -15,6 +15,7 @@ class CrimsonBarbViewGodot : public ArtifactViewGodot, public CrimsonBarbView {
     // Enables this class to be recognized by Godot
     GDCLASS(CrimsonBarbViewGodot, ArtifactViewGodot)
 
+    //TODO. Document this variable
     const std::string RESOURCE_PATH = "res://CrimsonBarb.png";
 
 protected:

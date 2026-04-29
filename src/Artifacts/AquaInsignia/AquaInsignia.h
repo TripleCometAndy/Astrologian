@@ -14,6 +14,7 @@
  */
 class AquaInsignia : public Artifact {
 public:
+    //TODO. It's an AquaInsigniaView. Rename appropriately
     /**
      * Constructor
      * @param view The engine specific implementation of the view
@@ -27,13 +28,13 @@ public:
      *  Test for equality between this artifact and another
      * @return  whether the two artifacts are equal
      */
-    bool operator==(const Artifact&) const override;
+    bool operator==(const Artifact& other) const override;
 
     /**
      *  Test whether this artifact and another are not equal
      * @return whether the two artifacts are not equal
      */
-    bool operator!=(const Artifact&) const override;
+    bool operator!=(const Artifact& other) const override;
 
     /** @copydoc Artifact::getView */
     [[nodiscard]] const View& getView() const override;

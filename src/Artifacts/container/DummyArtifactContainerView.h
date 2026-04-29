@@ -6,8 +6,10 @@
 #define ASTROLOGIAN_DUMMYARTIFACTCONTAINERVIEW_H
 #include "ArtifactContainerView.h"
 
-
+//TODO. Doc
 class DummyArtifactContainerView : public ArtifactContainerView {
+public:
+    //TODO. Doc
     void addArtifact(const View& artifact) override;
 };
 

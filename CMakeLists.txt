@@ -28,7 +28,6 @@ add_executable(astrologian-app src/Main.cpp
         src/Artifacts/CrimsonBarb/CrimsonBarbViewGodot.h
         src/ViewFactory/DummyViewFactory.cpp
         src/ViewFactory/DummyViewFactory.h
-        src/Artifacts/CrimsonBarb/CrimsonBarbView.cpp
         src/Artifacts/CrimsonBarb/CrimsonBarbView.h)
 
 add_executable(all_tests
@@ -46,9 +45,7 @@ add_executable(all_tests
         tests/AquaInsigniaTests.h
         src/GameLogic/GameModel.cpp
         src/GameLogic/GameModel.h
-        src/View/View.cpp
         src/View/View.h
-        src/ViewFactory/ViewFactory.cpp
         src/ViewFactory/ViewFactory.h
         src/Util/Random/RandomNumber.cpp
         src/Util/Random/RandomNumber.h
@@ -63,12 +60,8 @@ add_executable(all_tests
         tests/ArtifactPoolTests.h
         src/Artifacts/container/DummyArtifactContainerView.cpp
         src/Artifacts/container/DummyArtifactContainerView.h
-        src/Artifacts/AquaInsignia/AquaInsigniaView.cpp
         src/Artifacts/AquaInsignia/AquaInsigniaView.h
-        src/Artifacts/CrimsonBarb/CrimsonBarbView.cpp
         src/Artifacts/CrimsonBarb/CrimsonBarbView.h
-        src/Artifacts/ArtifactViewGodot.cpp
-        src/Artifacts/ArtifactViewGodot.h
 )
 
 add_library(Astrologian SHARED
@@ -97,10 +90,8 @@ add_library(Astrologian SHARED
         src/View/ViewType.h
         src/Artifacts/AquaInsignia/AquaInsigniaViewGodot.h
         src/Artifacts/AquaInsignia/AquaInsigniaViewGodot.cpp
-        src/Artifacts/CrimsonBarb/CrimsonBarbView.cpp
         src/Artifacts/CrimsonBarb/CrimsonBarbView.h
         src/ViewFactory/ViewFactory.h
-        src/ViewFactory/ViewFactory.cpp
         src/Artifacts/ArtifactViewGodot.cpp
         src/Artifacts/ArtifactViewGodot.h
 )

@@ -11,14 +11,20 @@
 
 #include "../View/ViewType.h"
 
+//TODO. Doc
 class GodotViewFactory : public ViewFactory {
+    //TODO. Document this variable
     godot::Node& parent;
+
+    //TODO. Document this variable
     std::unordered_map<VIEW_TYPE, std::function<View*()>> creators;
 
+    //TODO. Doc
     template<typename ViewT> static ViewT* getValue() {
         return memnew(ViewT);
     }
 
+    //TODO. Doc
     template<typename ViewT> static std::function<View*()> getEntry() {
         return [] {
             return getValue<ViewT>();
@@ -26,10 +32,13 @@ class GodotViewFactory : public ViewFactory {
     }
 
 public:
+    //TODO. Doc
     explicit GodotViewFactory(godot::Node& parent);
 
+    //TODO. Doc
     [[nodiscard]] View* getView(VIEW_TYPE type, bool addToSceneTree) const override;
 
+    //TODO. Doc
     ~GodotViewFactory() override = default;
 };
 

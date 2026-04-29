@@ -14,7 +14,8 @@ public:
     //TODO. This could probably return a reference
     [[nodiscard]] virtual View* getView(VIEW_TYPE type, bool addToSceneTree) const = 0;
 
-    virtual ~ViewFactory() = 0;
+    //TODO. Doc
+    virtual ~ViewFactory() = default;
 };
 
 

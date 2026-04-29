@@ -15,14 +15,15 @@ class ArtifactViewGodot : public godot::TextureRect {
     GDCLASS(ArtifactViewGodot, godot::TextureRect)
 
 protected:
+    //TODO. Doc
     static void _bind_methods();
 
+    //TODO. Doc
     void initialize(std::string imagePath);
 
 public:
+    //TODO. Doc
     void _ready() override;
 };
-
-
 
 #endif //ASTROLOGIAN_ARTIFACTVIEWGODOT_H

@@ -39,7 +39,10 @@ public:
     [[nodiscard]] const View& getView() const override;
 
 private:
+    //TODO. Document this variable
     const std::string NAME = "CrimsonBarb";
+
+    //TODO. Document this variable
     const CrimsonBarbView& view;
 };
 
