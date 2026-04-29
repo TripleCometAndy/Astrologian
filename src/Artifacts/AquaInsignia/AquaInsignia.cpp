@@ -8,7 +8,7 @@
 
 #include "AquaInsigniaView.h"
 
-AquaInsignia::AquaInsignia(const AquaInsigniaView& view) : aquaInsigniaView(view) {
+AquaInsignia::AquaInsignia(const AquaInsigniaView& aquaInsigniaView) : aquaInsigniaView(aquaInsigniaView) {
 
 }
 

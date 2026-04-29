@@ -14,12 +14,11 @@
  */
 class AquaInsignia : public Artifact {
 public:
-    //TODO. It's an AquaInsigniaView. Rename appropriately
     /**
      * Constructor
      * @param view The engine specific implementation of the view
      */
-    explicit AquaInsignia(const AquaInsigniaView& view);
+    explicit AquaInsignia(const AquaInsigniaView& aquaInsigniaView);
 
     /** @copydoc Artifact::getName */
     [[nodiscard]] const std::string& getName() const override;
