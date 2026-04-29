@@ -5,14 +5,15 @@
 #ifndef ASTROLOGIAN_AQUAINSIGNIAVIEWGODOT_H
 #define ASTROLOGIAN_AQUAINSIGNIAVIEWGODOT_H
 #include "AquaInsigniaView.h"
+#include "../ArtifactViewGodot.h"
 #include "godot_cpp/classes/sprite2d.hpp"
 
 /**
  * Godot implementation of AquaInsigniaView
  */
-class AquaInsigniaViewGodot : public godot::Sprite2D, public AquaInsigniaView {
+class AquaInsigniaViewGodot : public ArtifactViewGodot, public AquaInsigniaView {
     // Enables this class to be recognized by Godot
-    GDCLASS(AquaInsigniaViewGodot, godot::Sprite2D)
+    GDCLASS(AquaInsigniaViewGodot, ArtifactViewGodot)
 
     const std::string RESOURCE_PATH = "res://AquaInsignia.png";
 

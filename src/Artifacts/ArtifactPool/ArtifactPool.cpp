@@ -12,6 +12,9 @@
 ArtifactPool::ArtifactPool(RandomNumber& randomNumber, const ViewFactory& viewFactory)  : randomNumber(randomNumber), viewFactory(viewFactory){
     artifacts.push_back(CRIMSON_BARB);
     artifacts.push_back(AQUA_INSIGNIA);
+
+    creators[CRIMSON_BARB] = getEntry<CrimsonBarb, CrimsonBarbView>(CRIMSON_BARB);
+    creators[AQUA_INSIGNIA] = getEntry<AquaInsignia, AquaInsigniaView>(AQUA_INSIGNIA);
 }
 
 std::unique_ptr<Artifact> ArtifactPool::getArtifact() const {
@@ -19,27 +22,7 @@ std::unique_ptr<Artifact> ArtifactPool::getArtifact() const {
     const unsigned int index = randomNumber.getNumInRange(0, artifacts.size() - 1);
     const VIEW_TYPE type = artifacts.at(index);
 
-    std::unique_ptr<Artifact> artifact;
-
-    //TODO. DRY this up later
-    switch (type) {
-        case CRIMSON_BARB : {
-            View * crimson = viewFactory.getView(CRIMSON_BARB, false);
-            const auto crimsonBarbView = dynamic_cast<CrimsonBarbView*>(crimson);
-
-            artifact = std::make_unique<CrimsonBarb>(*crimsonBarbView);
-            break;
-        }
-        case AQUA_INSIGNIA : {
-            View * aqua = viewFactory.getView(AQUA_INSIGNIA, false);
-            const auto aquaInsigniaView = dynamic_cast<AquaInsigniaView*>(aqua);
-            artifact = std::make_unique<AquaInsignia>(*aquaInsigniaView);
-
-            break;
-        }
-    }
-
-    return artifact;
+    return creators.find(type)->second(viewFactory);
 }
 
 

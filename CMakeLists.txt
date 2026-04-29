@@ -67,6 +67,8 @@ add_executable(all_tests
         src/Artifacts/AquaInsignia/AquaInsigniaView.h
         src/Artifacts/CrimsonBarb/CrimsonBarbView.cpp
         src/Artifacts/CrimsonBarb/CrimsonBarbView.h
+        src/Artifacts/ArtifactViewGodot.cpp
+        src/Artifacts/ArtifactViewGodot.h
 )
 
 add_library(Astrologian SHARED
@@ -99,8 +101,9 @@ add_library(Astrologian SHARED
         src/Artifacts/CrimsonBarb/CrimsonBarbView.h
         src/ViewFactory/ViewFactory.h
         src/ViewFactory/ViewFactory.cpp
+        src/Artifacts/ArtifactViewGodot.cpp
+        src/Artifacts/ArtifactViewGodot.h
 )
-
 
 target_include_directories(Astrologian PRIVATE godot-cpp/include/godot)
 target_include_directories(Astrologian PRIVATE godot-cpp/gdextension)
@@ -113,7 +116,6 @@ add_custom_command(TARGET Astrologian POST_BUILD
         $<TARGET_FILE:Astrologian>
         ~/projects/Astrologian/Astrologian/astrologian/bin/libAstrologian.dylib
 )
-
 
 include(CTest)
 include(Catch)

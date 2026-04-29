@@ -4,6 +4,8 @@
 
 #ifndef ASTROLOGIAN_GODOTVIEWFACTORY_H
 #define ASTROLOGIAN_GODOTVIEWFACTORY_H
+#include <functional>
+
 #include "ViewFactory.h"
 #include <godot_cpp/classes/node.hpp>
 
@@ -11,6 +13,17 @@
 
 class GodotViewFactory : public ViewFactory {
     godot::Node& parent;
+    std::unordered_map<VIEW_TYPE, std::function<View*()>> creators;
+
+    template<typename ViewT> static ViewT* getValue() {
+        return memnew(ViewT);
+    }
+
+    template<typename ViewT> static std::function<View*()> getEntry() {
+        return [] {
+            return getValue<ViewT>();
+        };
+    }
 
 public:
     explicit GodotViewFactory(godot::Node& parent);

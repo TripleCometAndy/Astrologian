@@ -10,32 +10,13 @@
 #include "../Artifacts/CrimsonBarb/CrimsonBarbViewGodot.h"
 
 GodotViewFactory::GodotViewFactory(godot::Node& parent) : parent(parent) {
-
+    creators[CRIMSON_BARB] = getEntry<CrimsonBarbViewGodot>();
+    creators[AQUA_INSIGNIA] = getEntry<AquaInsigniaViewGodot>();
+    creators[ARTIFACT_CONTAINER] = getEntry<ArtifactContainerViewGodot>();
 }
 
 View *GodotViewFactory::getView(const VIEW_TYPE type, const bool addToSceneTree) const {
-    View* val;
-
-    switch (type) {
-        case CRIMSON_BARB: {
-            CrimsonBarbViewGodot * view = memnew(CrimsonBarbViewGodot);
-
-            val = view;
-            break;
-        }
-        case AQUA_INSIGNIA: {
-            AquaInsigniaViewGodot * view = memnew(AquaInsigniaViewGodot);
-
-            val = view;
-            break;
-        }
-        case ARTIFACT_CONTAINER: {
-            ArtifactContainerViewGodot * view = memnew(ArtifactContainerViewGodot);
-
-            val = view;
-            break;
-        }
-    }
+    View* val = creators.find(type)->second();
 
     if (addToSceneTree) {
         parent.add_child(dynamic_cast<godot::Node*>(val));

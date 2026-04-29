@@ -6,13 +6,16 @@
 #define ASTROLOGIAN_CRIMSONBARBVIEWGODOT_H
 #include "CrimsonBarbView.h"
 #include "godot_cpp/classes/sprite2d.hpp"
+#include "../ArtifactViewGodot.h"
 
 /**
  * Godot implementation of CrimsonBarbView
  */
-class CrimsonBarbViewGodot : public godot::Sprite2D, public CrimsonBarbView {
+class CrimsonBarbViewGodot : public ArtifactViewGodot, public CrimsonBarbView {
     // Enables this class to be recognized by Godot
-    GDCLASS(CrimsonBarbViewGodot, godot::Sprite2D)
+    GDCLASS(CrimsonBarbViewGodot, ArtifactViewGodot)
+
+    const std::string RESOURCE_PATH = "res://CrimsonBarb.png";
 
 protected:
     /**

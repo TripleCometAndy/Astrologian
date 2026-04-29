@@ -27,7 +27,7 @@ std::mt19937 RandomNumber::generateSeed(const int integerSeed) {
 }
 
 unsigned long RandomNumber::getNumInRange(const unsigned long min, const unsigned long max) {
-    std::uniform_int_distribution<unsigned long> distr(min, max);
+    std::uniform_int_distribution<> distr(min, max);
 
     return distr(seed);
 }
