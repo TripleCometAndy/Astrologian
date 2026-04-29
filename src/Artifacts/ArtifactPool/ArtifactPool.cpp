@@ -8,13 +8,17 @@
 
 #include "../AquaInsignia/AquaInsignia.h"
 #include "../CrimsonBarb/CrimsonBarb.h"
+#include "../../Exceptions/IllegalArgumentException.h"
 
 ArtifactPool::ArtifactPool(RandomNumber& randomNumber, const ViewFactory& viewFactory)  : randomNumber(randomNumber), viewFactory(viewFactory){
-    //TODO. What is this doing. Why?
+    //Add every VIEW_TYPE for artifacts into a vector.
+    //This will be used later to select a random artifact
     artifacts.push_back(CRIMSON_BARB);
     artifacts.push_back(AQUA_INSIGNIA);
 
-    //TODO. What is this doing and why?
+    //To DRY things up, I have implemented two template functions in the header
+    //that will help creating an Artifact and its View.
+    //Call `creators` with the key value of the artifact type you want
     creators[CRIMSON_BARB] = getEntry<CrimsonBarb, CrimsonBarbView>(CRIMSON_BARB);
     creators[AQUA_INSIGNIA] = getEntry<AquaInsignia, AquaInsigniaView>(AQUA_INSIGNIA);
 }
@@ -34,9 +38,17 @@ std::unique_ptr<Artifact> ArtifactPool::getArtifact() const {
 }
 
 std::unique_ptr<Artifact> ArtifactPool::constructArtifactWithType(VIEW_TYPE type) const {
-    //TODO. What is this doing. Why?
-    //TODO. What if creators.find(type) returns nullptr. Should log the error and throw an exception
-    return creators.find(type)->second(viewFactory);
+    //Search for the given VIEW_TYPE in the map.
+    //If an artifact type entry exists for the given type, then
+    //Grab the value from the entry, and use it to create an Artifact.
+
+    //Otherwise, throw an IllegalArgumentException. Every artifact type
+    //is inside the map, so the caller must have supplied something that isn't an artifact
+    if (auto search = creators.find(type); search != creators.end()) {
+        return search->second(viewFactory);
+    }
+    
+    throw IllegalArgumentException("Illegal artifact type found in 'constructArtifactWithType': " + type);
 }
 
 

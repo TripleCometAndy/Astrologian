@@ -62,6 +62,8 @@ add_executable(all_tests
         src/Artifacts/container/DummyArtifactContainerView.h
         src/Artifacts/AquaInsignia/AquaInsigniaView.h
         src/Artifacts/CrimsonBarb/CrimsonBarbView.h
+        src/Exceptions/IllegalArgumentException.cpp
+        src/Exceptions/IllegalArgumentException.h
 )
 
 add_library(Astrologian SHARED
@@ -94,6 +96,8 @@ add_library(Astrologian SHARED
         src/ViewFactory/ViewFactory.h
         src/Artifacts/ArtifactViewGodot.cpp
         src/Artifacts/ArtifactViewGodot.h
+        src/Exceptions/IllegalArgumentException.cpp
+        src/Exceptions/IllegalArgumentException.h
 )
 
 target_include_directories(Astrologian PRIVATE godot-cpp/include/godot)
