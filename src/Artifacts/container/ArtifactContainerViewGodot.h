@@ -32,7 +32,7 @@ public:
     void _ready() override;
 
     //TODO. Doc
-    void addArtifact(const View& artifact) override;
+    void addArtifact(const ArtifactView& artifact) override;
 };
 
 #endif //ASTROLOGIAN_ARTIFACTCONTAINER_H

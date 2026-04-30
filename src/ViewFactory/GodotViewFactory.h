@@ -27,7 +27,7 @@ class GodotViewFactory : public ViewFactory {
     //TODO. Doc
     template<typename ViewT> static std::function<View*()> getEntry() {
         return [] {
-            return getValue<ViewT>();
+            return static_cast<View*>(getValue<ViewT>());
         };
     }
 

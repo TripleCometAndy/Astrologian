@@ -5,6 +5,6 @@
 
 #include "DummyArtifactContainerView.h"
 
-void DummyArtifactContainerView::addArtifact(const View& artifact) {
+void DummyArtifactContainerView::addArtifact(const ArtifactView& artifact) {
 
 }

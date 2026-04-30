@@ -98,6 +98,7 @@ add_library(Astrologian SHARED
         src/Artifacts/ArtifactViewGodot.h
         src/Exceptions/IllegalArgumentException.cpp
         src/Exceptions/IllegalArgumentException.h
+        src/Artifacts/ArtifactView.h
 )
 
 target_include_directories(Astrologian PRIVATE godot-cpp/include/godot)

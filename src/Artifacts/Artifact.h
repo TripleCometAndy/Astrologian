@@ -5,6 +5,8 @@
 #ifndef ASTROLOGIAN_ARTIFACT_H
 #define ASTROLOGIAN_ARTIFACT_H
 #include <string>
+
+#include "ArtifactView.h"
 #include "../View/View.h"
 
 
@@ -37,7 +39,7 @@ public:
      *  Get the view associated with this artifact
      * @return the view associated with this artifact
      */
-    [[nodiscard]] virtual const View& getView() const = 0;
+    [[nodiscard]] virtual const ArtifactView& getView() const = 0;
 };
 
 #endif //ASTROLOGIAN_ARTIFACT_H

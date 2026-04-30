@@ -36,7 +36,7 @@ public:
     bool operator!=(const Artifact& other) const override;
 
     /** @copydoc Artifact::getView */
-    [[nodiscard]] const View& getView() const override;
+    [[nodiscard]] const ArtifactView& getView() const override;
 
 private:
     // The name of the artifact

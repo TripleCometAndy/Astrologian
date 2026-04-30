@@ -23,7 +23,7 @@ bool CrimsonBarb::operator!=(const Artifact& other) const {
     return !(*this == other);
 }
 
-const View& CrimsonBarb::getView() const {
+const ArtifactView& CrimsonBarb::getView() const {
     return view;
 }
 

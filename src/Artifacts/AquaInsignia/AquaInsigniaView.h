@@ -5,13 +5,14 @@
 #ifndef ASTROLOGIAN_AQUAINSIGNIAVIEW_H
 #define ASTROLOGIAN_AQUAINSIGNIAVIEW_H
 #include "../../View/View.h"
+#include "../ArtifactView.h"
 
 
 /**
  *  Interface for views for the AquaInsignia type of artifact
  *  Implementations will be engine specific
  */
-class AquaInsigniaView : public View {
+class AquaInsigniaView : public ArtifactView {
 
 };
 

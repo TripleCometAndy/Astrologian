@@ -6,6 +6,7 @@
 #include "ArtifactContainerViewGodot.h"
 
 #include "../../View/View.h"
+#include "../ArtifactView.h"
 #include "godot_cpp/classes/h_box_container.hpp"
 
 ArtifactContainerViewGodot::ArtifactContainerViewGodot() : hbox(*memnew(godot::HBoxContainer)) {
@@ -30,10 +31,8 @@ void ArtifactContainerViewGodot::_ready() {
     hbox.set_v_size_flags(SIZE_EXPAND_FILL);
 }
 
-void ArtifactContainerViewGodot::addArtifact(const View& artifact) {
-    //TODO. What is this doing? Why?
-    //TODO. What if the cast fails? Log the error and throw an exception
-    const auto node = dynamic_cast<Node*>(const_cast<View *>(&artifact));
+void ArtifactContainerViewGodot::addArtifact(const ArtifactView& artifact) {
+    const auto node = dynamic_cast<Node*>(const_cast<ArtifactView *>(&artifact));
 
     hbox.add_child(node);
 }

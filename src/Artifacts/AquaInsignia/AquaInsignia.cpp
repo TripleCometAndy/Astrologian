@@ -24,6 +24,6 @@ bool AquaInsignia::operator!=(const Artifact & other) const {
     return !(*this == other);
 }
 
-const View& AquaInsignia::getView() const {
+const ArtifactView& AquaInsignia::getView() const {
     return aquaInsigniaView;
 }

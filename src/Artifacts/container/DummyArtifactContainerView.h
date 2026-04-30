@@ -10,7 +10,7 @@
 class DummyArtifactContainerView : public ArtifactContainerView {
 public:
     //TODO. Doc
-    void addArtifact(const View& artifact) override;
+    void addArtifact(const ArtifactView& artifact) override;
 };
 
 
