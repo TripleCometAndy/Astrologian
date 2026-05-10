@@ -7,10 +7,11 @@
 
 #include <string>
 
+#include "ArtifactView.h"
 #include "godot_cpp/classes/texture_rect.hpp"
 
 
-class ArtifactViewGodot : public godot::TextureRect {
+class ArtifactViewGodot : public godot::TextureRect, public ArtifactView {
     // Enables this class to be recognized by Godot
     GDCLASS(ArtifactViewGodot, godot::TextureRect)
 
@@ -18,12 +19,14 @@ protected:
     //TODO. Doc
     static void _bind_methods();
 
-    //TODO. Doc
-    void initialize(std::string imagePath);
+
 
 public:
     //TODO. Doc
     void _ready() override;
+
+    //Initialize this artifact view once it enters the scene tree
+    void initialize(std::string imagePath);
 };
 
 #endif //ASTROLOGIAN_ARTIFACTVIEWGODOT_H

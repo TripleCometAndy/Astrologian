@@ -31,6 +31,8 @@ class GodotViewFactory : public ViewFactory {
         };
     }
 
+    static std::function<View*()> getArtifactEntry(std::string texturePath);
+
 public:
     //TODO. Doc
     explicit GodotViewFactory(godot::Node& parent);

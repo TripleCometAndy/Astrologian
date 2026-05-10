@@ -5,14 +5,13 @@
 
 #include "GodotViewFactory.h"
 
-#include "../Artifacts/AquaInsignia/AquaInsigniaViewGodot.h"
 #include "../Artifacts/container/ArtifactContainerViewGodot.h"
-#include "../Artifacts/CrimsonBarb/CrimsonBarbViewGodot.h"
+#include "../Artifacts/ArtifactViewGodot.h"
 
 GodotViewFactory::GodotViewFactory(godot::Node& parent) : parent(parent) {
     //TODO. What is this doing. Why?
-    creators[CRIMSON_BARB] = getEntry<CrimsonBarbViewGodot>();
-    creators[AQUA_INSIGNIA] = getEntry<AquaInsigniaViewGodot>();
+    creators[CRIMSON_BARB] = getArtifactEntry("res://CrimsonBarb.png");
+    creators[AQUA_INSIGNIA] = getArtifactEntry("res://AquaInsignia.png");
     creators[ARTIFACT_CONTAINER] = getEntry<ArtifactContainerViewGodot>();
 }
 
@@ -29,4 +28,14 @@ View *GodotViewFactory::getView(const VIEW_TYPE type, const bool addToSceneTree)
 
     //TODO. Throw an exception if this is null
     return val;
+}
+
+std::function<View *()> GodotViewFactory::getArtifactEntry(std::string texturePath) {
+    return [texturePath] {
+        ArtifactViewGodot * val = getValue<ArtifactViewGodot>();
+
+        val->initialize(texturePath);
+
+        return val;
+    };
 }

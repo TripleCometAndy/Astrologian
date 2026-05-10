@@ -4,7 +4,7 @@
 
 #ifndef ASTROLOGIAN_CRIMSONBARB_H
 #define ASTROLOGIAN_CRIMSONBARB_H
-#include "CrimsonBarbView.h"
+
 #include "../Artifact.h"
 #include "../../View/View.h"
 
@@ -18,7 +18,7 @@ public:
      * Constructor
      * @param crimsonBarbView The engine specific implementation of the view
      */
-    explicit CrimsonBarb(const CrimsonBarbView& crimsonBarbView);
+    explicit CrimsonBarb(const ArtifactView& crimsonBarbView);
 
     /** @copydoc Artifact::getName */
     [[nodiscard]] const std::string& getName() const override;
@@ -43,7 +43,7 @@ private:
     const std::string NAME = "CrimsonBarb";
 
     //TODO. Document this variable
-    const CrimsonBarbView& view;
+    const ArtifactView& view;
 };
 
 

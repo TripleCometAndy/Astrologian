@@ -11,7 +11,7 @@ const std::string& CrimsonBarb::getName() const {
     return NAME;
 }
 
-CrimsonBarb::CrimsonBarb(const CrimsonBarbView& crimsonBarbView)  : view(crimsonBarbView) {
+CrimsonBarb::CrimsonBarb(const ArtifactView& view)  : view(view) {
 
 }
 

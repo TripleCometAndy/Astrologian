@@ -19,8 +19,8 @@ ArtifactPool::ArtifactPool(RandomNumber& randomNumber, const ViewFactory& viewFa
     //To DRY things up, I have implemented two template functions in the header
     //that will help creating an Artifact and its View.
     //Call `creators` with the key value of the artifact type you want
-    creators[CRIMSON_BARB] = getEntry<CrimsonBarb, CrimsonBarbView>(CRIMSON_BARB);
-    creators[AQUA_INSIGNIA] = getEntry<AquaInsignia, AquaInsigniaView>(AQUA_INSIGNIA);
+    creators[CRIMSON_BARB] = getEntry<CrimsonBarb, ArtifactView>(CRIMSON_BARB);
+    creators[AQUA_INSIGNIA] = getEntry<AquaInsignia, ArtifactView>(AQUA_INSIGNIA);
 }
 
 std::unique_ptr<Artifact> ArtifactPool::getArtifact() const {

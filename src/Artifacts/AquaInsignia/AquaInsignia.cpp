@@ -6,9 +6,7 @@
 
 #include <memory>
 
-#include "AquaInsigniaView.h"
-
-AquaInsignia::AquaInsignia(const AquaInsigniaView& aquaInsigniaView) : aquaInsigniaView(aquaInsigniaView) {
+AquaInsignia::AquaInsignia(const ArtifactView& view) : view(view) {
 
 }
 
@@ -25,5 +23,5 @@ bool AquaInsignia::operator!=(const Artifact & other) const {
 }
 
 const ArtifactView& AquaInsignia::getView() const {
-    return aquaInsigniaView;
+    return view;
 }

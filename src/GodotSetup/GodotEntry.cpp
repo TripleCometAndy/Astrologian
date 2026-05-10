@@ -10,11 +10,9 @@
 
 #include <godot_cpp/godot.hpp>
 
-#include "../Artifacts/AquaInsignia/AquaInsigniaViewGodot.h"
 #include "../Artifacts/ArtifactViewGodot.h"
 #include "../Artifacts/container/ArtifactContainerViewGodot.h"
 #include "AstrologianGodot.h"
-#include "../Artifacts/CrimsonBarb/CrimsonBarbViewGodot.h"
 
 using namespace godot;
 
@@ -28,8 +26,6 @@ void initialize(ModuleInitializationLevel p_level) {
     //TODO. Atomize?
     ClassDB::register_class<AstrologianGodot>();
     ClassDB::register_class<ArtifactViewGodot>();
-    ClassDB::register_class<CrimsonBarbViewGodot>();
-    ClassDB::register_class<AquaInsigniaViewGodot>();
     ClassDB::register_class<ArtifactContainerViewGodot>();
 }
 

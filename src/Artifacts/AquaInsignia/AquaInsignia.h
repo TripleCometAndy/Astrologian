@@ -4,7 +4,6 @@
 
 #ifndef ASTROLOGIAN_AQUAINSIGNIA_H
 #define ASTROLOGIAN_AQUAINSIGNIA_H
-#include "AquaInsigniaView.h"
 #include "../Artifact.h"
 
 
@@ -18,7 +17,7 @@ public:
      * Constructor
      * @param view The engine specific implementation of the view
      */
-    explicit AquaInsignia(const AquaInsigniaView& aquaInsigniaView);
+    explicit AquaInsignia(const ArtifactView& view);
 
     /** @copydoc Artifact::getName */
     [[nodiscard]] const std::string& getName() const override;
@@ -43,7 +42,7 @@ private:
     const std::string NAME = "AquaInsignia";
 
     // The view associated with this artifact
-    const AquaInsigniaView& aquaInsigniaView;
+    const ArtifactView& view;
 };
 
 #endif //ASTROLOGIAN_AQUAINSIGNIA_H
