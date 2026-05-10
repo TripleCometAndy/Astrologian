@@ -8,14 +8,17 @@
 #include "../../View/View.h"
 
 class ArtifactView;
+
 /**
  * Interface encapsulating classes that represent the View for a UI container
  * for Artifacts.
  */
 class ArtifactContainerView : public View {
 public:
-    //TODO. Doc
-    //TODO. Should this be 'ArtifactView'. View alone is code smell
+    /**
+     *  Add an artifact to this container
+     * @param artifactView The artifact to add to the container
+     */
     virtual void addArtifact(const ArtifactView& artifactView) = 0;
 };
 

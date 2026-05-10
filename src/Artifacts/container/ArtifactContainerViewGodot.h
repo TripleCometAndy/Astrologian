@@ -10,12 +10,19 @@
 #include "godot_cpp/classes/scroll_container.hpp"
 #include "godot_cpp/classes/h_box_container.hpp"
 
-//TODO. Doc
+/**
+ * Class encapsulating a Godot implementation of ArtifactContainerView
+ */
 class ArtifactContainerViewGodot : public godot::ScrollContainer, public ArtifactContainerView {
     // Enables this class to be recognized by Godot
     GDCLASS(ArtifactContainerViewGodot, godot::ScrollContainer)
 
-    //TODO. Document this variable
+    /**
+    * This container is a Godot ScrollContainer.
+    * However, we want to have all the artifacts laid out in the container horizontally
+    * The HBoxContainer should be added as a child of this container, and then
+    * all artifacts will go inside the HBoxContainer
+     */
     godot::HBoxContainer& hbox;
 
 protected:
@@ -25,13 +32,14 @@ protected:
     static void _bind_methods();
 
 public:
-    //TODO. Doc
+    /**
+     * Constructor
+     */
     ArtifactContainerViewGodot();
 
-    //TODO. Doc
     void _ready() override;
 
-    //TODO. Doc
+    /** @copydoc ArtifactContainerView::addArtifact */
     void addArtifact(const ArtifactView& artifact) override;
 };
 
