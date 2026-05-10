@@ -5,7 +5,6 @@
 
 #include "ArtifactContainerViewGodot.h"
 
-#include "../../View/View.h"
 #include "../ArtifactView.h"
 #include "godot_cpp/classes/h_box_container.hpp"
 
@@ -17,17 +16,16 @@ void ArtifactContainerViewGodot::_bind_methods() {
 }
 
 void ArtifactContainerViewGodot::_ready() {
-    //TODO. Document what this is doing. Why?
+    //Don't add hbox to this container until the scene tree is set up
     add_child(&hbox);
 
-    //TODO. Make constants
-    //TODO. Document what this is doing. Why?
-    set_size(godot::Vector2(400, 200));
+    // Set the size of this container
+    //Without this, the container width and height will be (0, 0)
+    set_size(godot::Vector2(WIDTH, HEIGHT));
 
-    //TODO. Document what this is doing. Why?
+    // The hbox containing the artifacts should expand to
+    // take up the full width and height of this container
     hbox.set_h_size_flags(SIZE_EXPAND_FILL);
-
-    //TODO. Document what this is doing. Why?
     hbox.set_v_size_flags(SIZE_EXPAND_FILL);
 }
 

@@ -31,6 +31,11 @@ protected:
     */
     static void _bind_methods();
 
+    // The width of the container
+    const unsigned int WIDTH = 400;
+
+    // The height of the container
+    const unsigned int HEIGHT = 200;
 public:
     /**
      * Constructor
