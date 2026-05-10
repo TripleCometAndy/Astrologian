@@ -6,13 +6,13 @@
 #define ASTROLOGIAN_DUMMYARTIFACTCONTAINERVIEW_H
 #include "ArtifactContainerView.h"
 
-//TODO. Doc
+/**
+ *  Dummy implementation of ArtifactContainerView. Used only in testing
+ */
 class DummyArtifactContainerView : public ArtifactContainerView {
 public:
-    //TODO. Doc
+    /** @copydoc ArtifactContainerView::addArtifact */
     void addArtifact(const ArtifactView& artifact) override;
 };
-
-
 
 #endif //ASTROLOGIAN_DUMMYARTIFACTCONTAINERVIEW_H

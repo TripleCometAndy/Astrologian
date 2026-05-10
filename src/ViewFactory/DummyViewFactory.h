@@ -6,13 +6,14 @@
 #define ASTROLOGIAN_DUMMYVIEWFACTORY_H
 #include "ViewFactory.h"
 
-//TODO. Doc
+/**
+ *  Dummy implementation of ViewFactory. Used only in testing
+ */
 class DummyViewFactory : public ViewFactory {
 public:
-    //TODO. Doc
+    /** @copydoc ViewFactory::getView */
     [[nodiscard]] View* getView(VIEW_TYPE type, bool addToSceneTree) const override;
 
-    //TODO. Doc
     ~DummyViewFactory() override = default;
 };
 
