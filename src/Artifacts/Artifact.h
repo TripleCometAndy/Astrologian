@@ -11,35 +11,41 @@
 
 
 class Artifact {
+    const std::string NAME;
+
+    const ArtifactView& view;
+
 public:
+    Artifact(std::string name, const ArtifactView& view);
+
     /**
      * Destructor
      */
-    virtual ~Artifact() = default;
+    ~Artifact() = default;
 
     /**
      * Get the name of this artifact
      * @return the name of this artifact
      */
-    [[nodiscard]] virtual  const std::string& getName() const = 0;
+    [[nodiscard]] const std::string& getName() const;
 
     /**
      *  Test for equality between this artifact and another
      * @return  whether the two artifacts are equal
      */
-    virtual bool operator==(const Artifact&) const = 0;
+    bool operator==(const Artifact&) const;
 
     /**
      *  Test whether this artifact and another are not equal
      * @return whether the two artifacts are not equal
      */
-    virtual bool operator!=(const Artifact&) const = 0;
+    bool operator!=(const Artifact&) const;
 
     /**
      *  Get the view associated with this artifact
      * @return the view associated with this artifact
      */
-    [[nodiscard]] virtual const ArtifactView& getView() const = 0;
+    [[nodiscard]] const ArtifactView& getView() const;
 };
 
 #endif //ASTROLOGIAN_ARTIFACT_H

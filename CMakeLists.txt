@@ -12,10 +12,6 @@ add_subdirectory(godot-cpp)
 
 add_executable(astrologian-app src/Main.cpp
         src/Artifacts/Artifact.h
-        src/Artifacts/CrimsonBarb/CrimsonBarb.cpp
-        src/Artifacts/CrimsonBarb/CrimsonBarb.h
-        src/Artifacts/AquaInsignia/AquaInsignia.cpp
-        src/Artifacts/AquaInsignia/AquaInsignia.h
         src/GameLogic/Inventory.cpp
         src/GameLogic/Inventory.h
         src/Artifacts/ArtifactPool/ArtifactPool.cpp
@@ -29,18 +25,10 @@ add_executable(astrologian-app src/Main.cpp
 )
 
 add_executable(all_tests
-        tests/CrimsonBarbTests.cpp
-        tests/CrimsonBarbTests.h
-        src/Artifacts/CrimsonBarb/CrimsonBarb.cpp
-        src/Artifacts/CrimsonBarb/CrimsonBarb.h
-        src/Artifacts/AquaInsignia/AquaInsignia.cpp
-        src/Artifacts/AquaInsignia/AquaInsignia.h
         src/GameLogic/Inventory.cpp
         src/GameLogic/Inventory.h
         tests/InventoryTests.cpp
         tests/InventoryTests.h
-        tests/AquaInsigniaTests.cpp
-        tests/AquaInsigniaTests.h
         src/GameLogic/GameModel.cpp
         src/GameLogic/GameModel.h
         src/View/View.h
@@ -60,14 +48,12 @@ add_executable(all_tests
         src/Artifacts/container/DummyArtifactContainerView.h
         src/Exceptions/IllegalArgumentException.cpp
         src/Exceptions/IllegalArgumentException.h
+        src/Artifacts/Artifact.h
+        src/Artifacts/Artifact.cpp
 )
 
 add_library(Astrologian SHARED
         src/Artifacts/Artifact.h
-        src/Artifacts/CrimsonBarb/CrimsonBarb.cpp
-        src/Artifacts/CrimsonBarb/CrimsonBarb.h
-        src/Artifacts/AquaInsignia/AquaInsignia.cpp
-        src/Artifacts/AquaInsignia/AquaInsignia.h
         src/GameLogic/Inventory.cpp
         src/GameLogic/Inventory.h
         src/Artifacts/ArtifactPool/ArtifactPool.cpp
@@ -90,6 +76,7 @@ add_library(Astrologian SHARED
         src/Exceptions/IllegalArgumentException.cpp
         src/Exceptions/IllegalArgumentException.h
         src/Artifacts/ArtifactView.h
+        src/Artifacts/Artifact.cpp
 )
 
 target_include_directories(Astrologian PRIVATE godot-cpp/include/godot)
@@ -112,4 +99,6 @@ add_custom_target(run_tests ALL
         COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
         DEPENDS all_tests
 )
+
+add_dependencies(Astrologian run_tests)
 

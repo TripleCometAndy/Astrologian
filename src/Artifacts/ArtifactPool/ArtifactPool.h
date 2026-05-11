@@ -38,7 +38,7 @@ class ArtifactPool {
      *@param viewType The VIEW_TYPE to create an Artifact for
      *@param viewFactory The ViewFactory
      */
-    template<typename ArtifactT, typename ViewT> static std::unique_ptr<Artifact>  getArtifactForViewType(const VIEW_TYPE viewType, const ViewFactory& viewFactory) {
+    template<typename ArtifactT, typename ViewT> static std::unique_ptr<Artifact>  getArtifactForViewType(const std::string artifactName, const VIEW_TYPE viewType, const ViewFactory& viewFactory) {
         //Get the View for the given VIEW_TYPE. An Artifact must have a View
         View * view = viewFactory.getView(viewType, false);
 
@@ -62,7 +62,7 @@ class ArtifactPool {
             throw IllegalArgumentException(errorMessage);
         }
 
-        return std::make_unique<ArtifactT>(*viewT);
+        return std::make_unique<ArtifactT>(artifactName, *viewT);
     }
 
     /**
@@ -72,9 +72,9 @@ class ArtifactPool {
      * @param type The VIEW_TYPE to create the function for
      * @return the unique_ptr to the Artifact
      */
-    template<typename ArtifactT, typename ViewT> static std::function<std::unique_ptr<Artifact>(const ViewFactory&)> getEntry(VIEW_TYPE type) {
-        return [type](const ViewFactory& viewFactory) {
-            return getArtifactForViewType<ArtifactT, ViewT>(type, viewFactory);
+    template<typename ArtifactT, typename ViewT> static std::function<std::unique_ptr<Artifact>(const ViewFactory&)> getEntry(std::string artifactName, VIEW_TYPE type) {
+        return [artifactName, type](const ViewFactory& viewFactory) {
+            return getArtifactForViewType<ArtifactT, ViewT>(artifactName, type, viewFactory);
         };
     }
 

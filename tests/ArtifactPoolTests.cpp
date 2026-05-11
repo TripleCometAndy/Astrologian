@@ -6,8 +6,6 @@
 
 #include <catch2/catch_test_macros.hpp>
 #include "../src/Artifacts/ArtifactPool/ArtifactPool.h"
-#include "../src/Artifacts/CrimsonBarb/CrimsonBarb.h"
-#include "../src/Artifacts/AquaInsignia/AquaInsignia.h"
 #include "../src/ViewFactory/DummyViewFactory.h"
 
 TEST_CASE("Test get CrimsonBarb successfully") {
@@ -17,7 +15,7 @@ TEST_CASE("Test get CrimsonBarb successfully") {
 
     std::unique_ptr<Artifact> artifact = artifactPool.getArtifact();
 
-    CrimsonBarb* crimsonBarb = dynamic_cast<CrimsonBarb*>(artifact.get());
+    Artifact* crimsonBarb = artifact.get();
 
     REQUIRE(crimsonBarb != nullptr);
 }
@@ -29,7 +27,7 @@ TEST_CASE("Test get AquaInsignia successfully") {
 
     std::unique_ptr<Artifact> artifact = artifactPool.getArtifact();
 
-    AquaInsignia* aquaInsignia = dynamic_cast<AquaInsignia *>(artifact.get());
+    Artifact* aquaInsignia = artifact.get();
 
     REQUIRE(aquaInsignia != nullptr);
 }

@@ -4,8 +4,6 @@
 
 #include <catch2/catch_test_macros.hpp>
 
-#include "../src/Artifacts/AquaInsignia/AquaInsignia.h"
-#include "../src/Artifacts/CrimsonBarb/CrimsonBarb.h"
 #include "../src/ViewFactory/DummyViewFactory.h"
 #include "../src/GameLogic/Inventory.h"
 
@@ -17,28 +15,28 @@ TEST_CASE("Inventory has no artifacts by default") {
 }
 
 TEST_CASE("Test can successfully add artifact to inventory") {
-    AquaInsigniaView view;
+    ArtifactView view;
     DummyViewFactory dummyViewFactory;
     Inventory inventory(dummyViewFactory);
 
-    inventory.addArtifact(std::make_unique<AquaInsignia>(view));
+    inventory.addArtifact(std::make_unique<Artifact>("AquaInsignia", view));
 
-    REQUIRE(inventory.contains(AquaInsignia(view)));
+    REQUIRE(inventory.contains(Artifact("AquaInsignia", view)));
 }
 
 TEST_CASE("Test can successfully get artifacts from inventory") {
-    AquaInsigniaView view;
-    CrimsonBarbView view2;
+    ArtifactView view;
+    ArtifactView view2;
     DummyViewFactory dummyViewFactory;
     Inventory inventory(dummyViewFactory);
 
-    inventory.addArtifact(std::make_unique<AquaInsignia>(view));
-    inventory.addArtifact(std::make_unique<CrimsonBarb>(view2));
+    inventory.addArtifact(std::make_unique<Artifact>("AquaInsignia", view));
+    inventory.addArtifact(std::make_unique<Artifact>("CrimsonBarb", view2));
 
     std::vector<const Artifact *> artifacts = inventory.getArtifacts();
 
-    const AquaInsignia * insignia1 = dynamic_cast<const AquaInsignia *>(artifacts[0]);
-    const CrimsonBarb * barb2 = dynamic_cast<const CrimsonBarb *>(artifacts[1]);
+    const Artifact * insignia1 = artifacts[0];
+    const Artifact * barb2 = artifacts[1];
 
     REQUIRE(insignia1 != nullptr);
     REQUIRE(barb2 != nullptr);
