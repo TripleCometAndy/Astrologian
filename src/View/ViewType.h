@@ -1,0 +1,17 @@
+//
+// Created by Andy Langer on 4/20/26.
+//
+
+#ifndef ASTROLOGIAN_VIEWTYPE_H
+#define ASTROLOGIAN_VIEWTYPE_H
+
+//TODO. Doc
+enum VIEW_TYPE {
+    CRIMSON_BARB,
+    AQUA_INSIGNIA,
+    ARTIFACT_CONTAINER
+};
+
+#endif //ASTROLOGIAN_VIEWTYPE_H
+
+
